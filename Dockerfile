@@ -1,4 +1,4 @@
-FROM python:2-alpine
+FROM python:3
 ENV influxdbhost=""
 ENV influxdbport="8086"
 ENV influxdbusername=""
