@@ -44,6 +44,9 @@ client = InfluxDBClient(host=args.influxdbhost, port=args.influxdbport, username
 
 try:
         response = client.write_points(json_body)
-        print("Client responded with: ", response)
+        print("InfluxDB client response: ", response)
+        print("JSON sent: ", json_body)
+        exit(0)
+        
 except InfluxDBClientError as e:
         print(e.content)
