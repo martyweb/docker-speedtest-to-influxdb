@@ -20,11 +20,15 @@ parser.add_argument('-d', '--influxdbdatabase', default="speedtest", help='Influ
 args = parser.parse_args()
 
 #convert string to json object
-json_full_data = json.loads(script_response)
-json_speed_data = json_full_data
-name=json_full_data["client"]["ip"]
-json_speed_data.pop("client", None)
-json_speed_data.pop("server", None)
+try:
+    json_full_data = json.loads(script_response)
+    json_speed_data = json_full_data
+    name=json_full_data["client"]["ip"]
+    json_speed_data.pop("client", None)
+    json_speed_data.pop("server", None)
+except Exception:
+    print("Bad JSON: ", script_response)
+    exit(1)
 
 #--------------------------------------------------------
 #post data to influxdb
