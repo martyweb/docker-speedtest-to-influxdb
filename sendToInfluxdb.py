@@ -17,7 +17,10 @@ parser.add_argument('-d', '--influxdbdatabase', default="speedtest", help='Influ
 #parser.add_argument('-j', '--jsondata', required=True, help='Data to send to Influxdb')
 args = parser.parse_args()
 
-#convert string to json object
+if(script_response==""):
+    print("Command response is blank")
+    exit()
+
 try:
     json_full_data = json.loads(script_response)
     json_speed_data = json_full_data
