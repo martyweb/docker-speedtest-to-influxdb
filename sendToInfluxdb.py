@@ -5,10 +5,8 @@ import argparse
 from influxdb import InfluxDBClient
 from influxdb.client import InfluxDBClientError
 
-script_response = os.popen("speedtest-cli --json").read()
-
-#windows command
-#script_response = os.popen("C:\\Users\\marty\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python38\\Scripts\\speedtest-cli --json").read()
+script_response = os.popen("speedtest-cli --accept-license --accept-gdpr --json").read()
+print("Script response", script_response)
 
 parser = argparse.ArgumentParser(description='Gimme')
 parser.add_argument('-s', '--influxdbhost', required=True, help='Influxdb host')
