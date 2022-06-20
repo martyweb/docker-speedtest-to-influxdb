@@ -5,7 +5,7 @@ import argparse
 from influxdb import InfluxDBClient
 from influxdb.client import InfluxDBClientError
 
-script_response = os.popen("speedtest-cli --accept-license --accept-gdpr --json").read()
+script_response = os.popen("speedtest-cli --json").read()
 print("Script response", script_response)
 
 parser = argparse.ArgumentParser(description='Gimme')
